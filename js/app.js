@@ -173,9 +173,6 @@ function leaveTheShire() {
 	}
 	hobbitDestination.appendChild(hobbitRivL);
 	hobbitOld.parentElement.removeChild(hobbitOld)
-
-
-
 	
 }
 
@@ -188,6 +185,10 @@ function leaveTheShire() {
 
 function beautifulStranger() {
 	console.log('7: beautifulStranger')
+	document.getElementById('Strider').innerHTML = "Aragorn"
+	document.getElementById('Strider').setAttribute('id', 'Aragorn')
+
+	
 
 	// change the `'Strider'` text to `'Aragorn'`
 }
