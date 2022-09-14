@@ -164,15 +164,22 @@ function leaveTheShire() {
 	const hobbitRivL = document.createElement('ul')
 	const hobbitOld = document.getElementById('shireHobbits')
 	
-	for (i=0; i<=hobbits.length-1; i++) {
-		const newHobbit = document.createElement('li')
-		newHobbit.setAttribute('class', 'hobbit')
-		newHobbit.setAttribute('id', hobbits[i])
-		newHobbit.textContent = hobbits[i]	
-		hobbitRivL.appendChild(newHobbit)
-	}
+	hobbitClone = hobbitOld.cloneNode(true);
+	hobbitRivL.appendChild(hobbitClone);
 	hobbitDestination.appendChild(hobbitRivL);
-	hobbitOld.parentElement.removeChild(hobbitOld)
+	hobbitOld.parentElement.removeChild(hobbitOld);
+	
+
+	//old code, not needed as cloneNode works waaaaaaaay better
+	// for (i=0; i<=hobbits.length-1; i++) {
+	// 	const newHobbit = document.createElement('li')
+	// 	newHobbit.setAttribute('class', 'hobbit')
+	// 	newHobbit.setAttribute('id', hobbits[i])
+	// 	newHobbit.textContent = hobbits[i]	
+	// 	hobbitRivL.appendChild(newHobbit)
+	// }
+	// hobbitDestination.appendChild(hobbitRivL);
+	// hobbitOld.parentElement.removeChild(hobbitOld)
 	
 }
 
@@ -203,7 +210,17 @@ function beautifulStranger() {
 function forgeTheFellowShip() {
 	console.log('8: forgeTheFellowShip')
 	// create a new div called `'the-fellowship'` within `rivendell`
+	const fellowLoc = document.querySelector('Rivendell')
+	const forgeFellowship = document.createElement('div')
+	const notFellowHobs = document.getElementsByClassName('hobbit')
+	const notFellowBuds = document.getElementsByClassName('buddy')
+	forgeFellowship.setAttribute('id', 'The Fellowship')
+	// fellowLoc.appendChild(forgeFellowship)
+	
 	// add each `hobbit` and `buddy` one at a time to `'the-fellowship'`
+	// const fellowHobs = notFellowHobs.cloneNode(true);
+	console.log(notFellowHobs);
+	
 	// after each character is added make an alert that they // have joined your party
 
 	// NOTE: This won't change what you see in the browser.  Use your Elements tab of your Inspector tools to make sure that it worked.
