@@ -53,6 +53,7 @@ function makeHobbits() {
 	// display an `unordered list` of hobbits in the shire
 	const hobbitL = document.getElementById('The-Shire')
 	const hobbitUl = document.createElement('ul')
+	hobbitUl.setAttribute('id', 'shireHobbits')
 	
 	for (i=0; i<=hobbits.length-1; i++) {
 		const newHobbit = document.createElement('li')
@@ -158,6 +159,24 @@ function leaveTheShire() {
 	console.log('6: leaveTheShire')
 
 	// assemble the `hobbits` and move them to `rivendell`
+	const hobbitsStart = document.getElementsByClassName('hobbit')
+	const hobbitDestination = document.getElementById('Rivendell')
+	const hobbitRivL = document.createElement('ul')
+	const hobbitOld = document.getElementById('shireHobbits')
+	
+	for (i=0; i<=hobbits.length-1; i++) {
+		const newHobbit = document.createElement('li')
+		newHobbit.setAttribute('class', 'hobbit')
+		newHobbit.setAttribute('id', hobbits[i])
+		newHobbit.textContent = hobbits[i]	
+		hobbitRivL.appendChild(newHobbit)
+	}
+	hobbitDestination.appendChild(hobbitRivL);
+	hobbitOld.parentElement.removeChild(hobbitOld)
+
+
+
+	
 }
 
 // COMMIT YOUR WORK
