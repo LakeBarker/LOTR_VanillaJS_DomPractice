@@ -132,6 +132,7 @@ function makeBuddies() {
 	// create an `aside` tag
 	const buds = document.createElement('aside')
 	const budsL = document.getElementById('Rivendell')
+	budsL.appendChild(buds);
 	const budsUl = document.createElement('ul')
 
 	for (i=0;i<=buddies.length-1;i++) {
@@ -141,7 +142,8 @@ function makeBuddies() {
 		newBud.textContent = buddies[i]
 		budsUl.appendChild(newBud)
 	}
-	budsL.appendChild(budsUl);
+	buds.appendChild(budsUl);
+	budsUl.setAttribute('id', 'buddies')
 
 	// put an `unordered list` of the `'buddies'` in the aside
 
@@ -210,16 +212,31 @@ function beautifulStranger() {
 function forgeTheFellowShip() {
 	console.log('8: forgeTheFellowShip')
 	// create a new div called `'the-fellowship'` within `rivendell`
-	const fellowLoc = document.querySelector('Rivendell')
+	const fellowLoc = document.getElementById('Rivendell')
 	const forgeFellowship = document.createElement('div')
-	const notFellowHobs = document.getElementsByClassName('hobbit')
-	const notFellowBuds = document.getElementsByClassName('buddy')
 	forgeFellowship.setAttribute('id', 'The Fellowship')
-	// fellowLoc.appendChild(forgeFellowship)
-	
+	fellowLoc.appendChild(forgeFellowship);
 	// add each `hobbit` and `buddy` one at a time to `'the-fellowship'`
-	// const fellowHobs = notFellowHobs.cloneNode(true);
-	console.log(notFellowHobs);
+	const notFellowHobs = document.querySelectorAll('li.hobbit')
+	console.log(notFellowHobs)
+	const notFellowBuds = document.querySelectorAll('li.buddy')
+	console.log(notFellowBuds)
+	const fellowUl = document.createElement('ul')
+	fellowUl.setAttribute('id', 'the-fellowship')
+	forgeFellowship.appendChild(fellowUl)
+	//const theFellowship = document.createElement('ul')	
+	
+	for (i=0;i<=notFellowBuds.length-1;i++) {
+		fellowUl.appendChild(notFellowBuds[i])
+		console.log(`${notFellowBuds[i].textContent} has joined the party!`)
+	}
+	
+
+	for (i=0;i<=notFellowHobs.length-1;i++) {
+		const fellowHob=document.createElement('li')
+		fellowUl.appendChild(notFellowHobs[i])
+		console.log(`${notFellowHobs[i].textContent} has joined the party!`)
+	}
 	
 	// after each character is added make an alert that they // have joined your party
 
