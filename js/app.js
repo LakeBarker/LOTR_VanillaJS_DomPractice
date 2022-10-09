@@ -276,7 +276,6 @@ function hornOfGondor() {
 	console.log('10: hornOfGondor')
 	alert("The Horn of Gondor!! Boromir has been slain!")
 	const boromir = document.getElementById("Boromir")
-	const fellowship = document.getElementById("the-fewllowship")
 	boromir.parentElement.removeChild(boromir)
 	
 	// pop up an alert that the horn of gondor has been blown
@@ -294,7 +293,24 @@ function hornOfGondor() {
 function itsDangerousToGoAlone() {
 	console.log('11: itsDangerousToGoAlone')
 	// take `Frodo` and `Sam` out of the fellowship and move // them to `Mordor`
+	const frodo = document.getElementById('Frodo Baggins')
+	const sam = document.getElementById('Samwise "Sam" Gamgee')
+	const sNfDestination = document.getElementById('Mordor')
+
+	frodoMord = frodo.cloneNode(true)
+	samMord = sam.cloneNode(true)
+
+	sNfDestination.appendChild(frodoMord)
+	sNfDestination.appendChild(samMord)
+
+	frodo.parentElement.removeChild(frodo)
+	sam.parentElement.removeChild(sam)
 	// add a div with an id of `'mount-doom'` to `Mordor`
+	const mtDoom = document.createElement('div')
+	mtDoom.setAttribute('id', 'mount-doom')
+	const newH = document.createTextNode("mount-doom")
+	mtDoom.appendChild(newH)
+	sNfDestination.appendChild(mtDoom)
 }
 
 // COMMIT YOUR WORK
